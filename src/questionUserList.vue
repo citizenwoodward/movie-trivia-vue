@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import Events from './events.js'
+
 import question from './question.vue'
 
 export default {
@@ -21,7 +23,12 @@ export default {
         {item: "Where are you from?", answer:"the world", id:3},
   ]
     		}
-  		}
+  		},
+      mounted() {
+        Events.$on('new-user-question', function(){
+         console.log("hey")
+        })
+      }
 }
 </script>
 

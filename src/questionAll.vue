@@ -1,3 +1,5 @@
+
+
 <template>
 <div>
 
@@ -9,10 +11,10 @@
 </template>
 
 <script>
-
+import Events from './events.js'
 
 export default {
-	
+
 	props: ['question', 'questionsList'],
   	data () {
     	return {
@@ -22,8 +24,9 @@ export default {
   	methods: {
     toggleDetails(question) {
       this.showDetails = !this.showDetails
-       console.log(question.item)
-       this.questionsList.push({item:this.question})
+       // console.log(question.item)
+       // this.questionsList.push({item:this.question})
+       Events.$emit('new-user-question', {item:this.question})
     }
   }	
 }
