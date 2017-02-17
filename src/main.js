@@ -4,7 +4,7 @@ import titleSect from './header.vue'
 import questionUserList from './questionUserList.vue'
 import questionsAllList from './questionsAllList.vue'
 
-new Vue({
+var appVue = new Vue({
   el: '#App',
   components: { questionUserList, titleSect, questionsAllList },
   data: {
@@ -16,6 +16,7 @@ new Vue({
            console.log(question)
         }
     }
+    
 });
 
-var Events = new Vue({});
+

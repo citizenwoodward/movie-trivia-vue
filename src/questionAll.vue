@@ -11,22 +11,26 @@
 </template>
 
 <script>
-import Events from './events.js'
+import Events from './events.js';
+
 
 export default {
 
-	props: ['question', 'questionsList'],
+	props: [ 'question', 'questionsList'],
   	data () {
     	return {
-      		showDetails: false
+        newUserQuestion: this.question,
+      	showDetails: false
     		}
   		},
   	methods: {
-    toggleDetails(question) {
-      this.showDetails = !this.showDetails
+    toggleDetails(question, newUserQuestion) {
+      this.showDetails = !this.showDetails;
+      this.newUserQuestion = this.question
+    
        // console.log(question.item)
        // this.questionsList.push({item:this.question})
-       Events.$emit('new-user-question', {item:this.question})
+       this.$bus.$emit('new-user-question', this.newUserQuestion)
     }
   }	
 }

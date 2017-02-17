@@ -8,26 +8,30 @@
 </template>
 
 <script>
-import Events from './events.js'
+import Events from './events.js';
+
 
 import question from './question.vue'
 
-export default {
+export default    {
   components: { question},
+  props: [ 'newUserQuestion'],
   	data () {
     	return {
       		showDetails: "false",
+
       questionsList: [
-        {item:"How's it going?", answer:"good", id:1},
-        {item:"What's up?", answer: "chilling", id:2},
-        {item: "Where are you from?", answer:"the world", id:3},
+        {item:"How's it going?"},
+        {item:"What's up?"},
+        {item: "Where are you from?"},
   ]
     		}
   		},
       mounted() {
-        Events.$on('new-user-question', function(){
-         console.log("hey")
-        })
+        this.$bus.$on('new-user-question', function(newUserQuestion){
+         console.log(newUserQuestion.item);
+         this.questionsList.push(newUserQuestion)
+        }.bind(this))
       }
 }
 </script>
@@ -38,7 +42,7 @@ export default {
 }
 
 .ques {
-	    display: flex;
+	   display: flex;
     flex-direction: row;
     margin-bottom: 20px;
     background-color: #e3dede;

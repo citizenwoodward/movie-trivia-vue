@@ -2,7 +2,7 @@
 <div>
    <input class="inputQues" v-model="newQuestion" v-on:keyup.enter="addNewQuestion" placeholder="Create a new question">
    <div class="ques" v-for="question in questions">
-    	<questionAll :question="question"></questionAll>
+    	<questionAll  :question="question"></questionAll>
     </div>  
  
      </div>   

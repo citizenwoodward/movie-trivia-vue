@@ -22,6 +22,7 @@ export default {
   	methods: {
     toggleDetails(question) {
       this.showDetails = !this.showDetails
+      console.log(question.item)
       // this.questionsList.push({item:this.question})
     }
   }	
